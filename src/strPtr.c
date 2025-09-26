@@ -5,14 +5,29 @@
 #include "strPtr.h"
 
 int strgLen(const char *s) {
-    // TODO: implement
-    return 0;
+    if(s == NULL){
+        return -1;
+    }
+
+    int count = 0;
+    while(*(s+count) != 0){
+        count++;
+    }
+    return count;
 }
 
 void strgCopy(char *dest, char *src) {
-    // TODO: implement
-    (void)dest;
-    (void)src;
+    if(src == NULL || dest == NULL){
+        return;
+    }
+
+    for(int idx = 0; ; idx++){
+        *(dest+idx) = *(src+idx);
+
+        if(*(src+idx) == 0){
+            break;
+        }
+    }
 }
 
 void strgChangeCase(char *s) {
@@ -54,7 +69,27 @@ int main(int argc, char* argv[]){
 	(void)argc;
 	(void)argv;
 	/** CREATE TEST CASES HERE **/
-	
+
+	//printf("%d\n", strgLen("Stony Brook"));
+	//printf("%d\n", strgLen("CSE 220"));
+	//printf("%d\n", strgLen("C"));
+	//printf("%d\n", strgLen("System Fundamental"));
+	//printf("%d\n", strgLen("1"));
+	//printf("%d\n", strgLen(""));
+	//printf("%d\n", strgLen(NULL));
+
+    //char dest[32] = {0};
+    //strgCopy(dest, "Computer Science");
+    //printf("%s\n", dest);
+    //strgCopy(dest, "CSE-220");
+    //printf("%s\n", dest);
+    //strgCopy(dest, "System Fundamental");
+    //printf("%s\n", dest);
+    //strgCopy(dest, "1");
+    //printf("%s\n", dest);
+    //strgCopy(dest, "");
+    //printf("%s\n", dest);
+
 	/** ---------------------- **/
 	return 0;
 }
