@@ -36,14 +36,17 @@ void strgChangeCase(char *s) {
     }
 
     for(int idx = 0; *(s+idx) != 0; idx++){
+        //Check surrounding characters if they are digits
         if((*(s+idx+1) >= 48 && *(s+idx+1) <= 57) ||
            (idx != 0 && *(s+idx-1) >= 48 && *(s+idx-1) <= 57)){
             continue;
         }
 
+        //Lower case
         if(*(s+idx) >= 97 && *(s+idx) <= 122){
             *(s+idx) = *(s+idx)-32;
         }
+        //Upper case
         else if(*(s+idx) >= 65 && *(s+idx) <= 90){
             *(s+idx) = *(s+idx)+32;
         }
@@ -76,6 +79,7 @@ void strgInterleave(char *s1, char *s2, char *d) {
     int s2Idx = 0;
     int dIdx = 0;
 
+    //While both strings are NOT null character, copy and keep going
     while(*(s1+s1Idx) != 0 && *(s2+s2Idx) != 0){
         *(d+dIdx) = *(s1+s1Idx);
         *(d+dIdx+1) = *(s2+s2Idx);
@@ -85,6 +89,7 @@ void strgInterleave(char *s1, char *s2, char *d) {
         dIdx+=2;
     }
 
+    //Check which string still has leftover characters
     if(*(s1+s1Idx) == 0){
         while(*(s2+s2Idx) != 0){
             *(d+dIdx) = *(s2+s2Idx);
@@ -100,6 +105,7 @@ void strgInterleave(char *s1, char *s2, char *d) {
         }
     }
 
+    //End on null character
     *(d+dIdx) = 0;
 }
 
@@ -112,16 +118,23 @@ void strgReverseLetters(char *s) {
     char mem[len] = {};
     int memIdx = 0;
 
+    //Start from end, go to beginning
     while(len > 0){
         len--;
+        //If not an alphabet character, skip over it
         if(!((*(s+len) >= 97 && *(s+len) <= 122) || (*(s+len) >= 65 && *(s+len) <= 90))){
             continue;
         }
+
+        //Otherwise, add character to "mem" array
         mem[memIdx] = *(s+len);
         memIdx++;
     }
 
+    //Replace original string with contents in "mem" array
+    //Already stored in reverse order
     for(int idx = 0; *(s+idx) != 0; idx++){
+        //If current character isn't alphabet, skip over it
         if(!((*(s+idx) >= 97 && *(s+idx) <= 122) || (*(s+idx) >= 65 && *(s+idx) <= 90))){
             continue;
         }
@@ -211,27 +224,27 @@ int main(int argc, char* argv[]){
     // strgInterleave("NULL", NULL, dest); //Does nothing
     // strgInterleave(NULL, NULL, dest);   //Does nothing
 
-    char t1[] = "Hello";
-    strgReverseLetters(t1);
-    printf("%s\n", t1);
-    char t2[] = "ab-cd";
-    strgReverseLetters(t2);
-    printf("%s\n", t2);
-    char t3[] = "a1b2c";
-    strgReverseLetters(t3);
-    printf("%s\n", t3);
-    char t4[] = "hello world";
-    strgReverseLetters(t4);
-    printf("%s\n", t4);
-    char t5[] = "_X_";
-    strgReverseLetters(t5);
-    printf("%s\n", t5);
-    char t6[] = "";
-    strgReverseLetters(t6);
-    printf("%s\n", t6);
-    char t7[] = "elf!";
-    strgReverseLetters(t7);
-    printf("%s\n", t7);
+    // char t1[] = "Hello";
+    // strgReverseLetters(t1);
+    // printf("%s\n", t1);
+    // char t2[] = "ab-cd";
+    // strgReverseLetters(t2);
+    // printf("%s\n", t2);
+    // char t3[] = "a1b2c";
+    // strgReverseLetters(t3);
+    // printf("%s\n", t3);
+    // char t4[] = "hello world";
+    // strgReverseLetters(t4);
+    // printf("%s\n", t4);
+    // char t5[] = "_X_";
+    // strgReverseLetters(t5);
+    // printf("%s\n", t5);
+    // char t6[] = "";
+    // strgReverseLetters(t6);
+    // printf("%s\n", t6);
+    // char t7[] = "elf!";
+    // strgReverseLetters(t7);
+    // printf("%s\n", t7);
 
 	/** ---------------------- **/
 	return 0;
