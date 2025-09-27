@@ -2,6 +2,11 @@
 #include "caesar.h" 
 #include "strPtr.h"
 
+/*
+ *  Elijah Ren - CSE 220
+ *  116253293
+*/
+
 /**
  *  Feel free to use the functions that you made in strPtr.c
 */ 

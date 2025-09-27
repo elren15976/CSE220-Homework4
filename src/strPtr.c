@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include "strPtr.h"
 
+/*
+ *  Elijah Ren - CSE 220
+ *  116253293
+*/
+
 int strgLen(const char *s) {
     if(s == NULL){
         return -1;
