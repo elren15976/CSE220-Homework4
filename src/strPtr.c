@@ -24,7 +24,7 @@ void strgCopy(char *dest, char *src) {
     for(int idx = 0; ; idx++){
         *(dest+idx) = *(src+idx);
 
-        if(*(src+idx) == 0){
+        if(*(src+idx) == 0){    //Copy first, then break if needed
             break;
         }
     }
@@ -51,22 +51,84 @@ void strgChangeCase(char *s) {
 }
 
 int strgDiff(char *s1, char *s2) {
-    // TODO: implement
-    (void)s1;
-    (void)s2;
-    return 0;
+    if(s1 == NULL || s2 == NULL){
+        return -2;
+    }
+
+    for(int idx = 0; ; idx++){
+        if(*(s1+idx) != *(s2+idx)){
+            return idx;
+        }
+
+        if(*(s1+idx) == 0 || *(s2+idx) == 0){   //Compare first, then break if needed
+            break;
+        }
+    }
+    return -1;
 }
 
 void strgInterleave(char *s1, char *s2, char *d) {
-    // TODO: implement
-    (void)s1;
-    (void)s2;
-    (void)d;
+    if(s1 == NULL || s2 == NULL || d == NULL){
+        return;
+    }
+
+    int s1Idx = 0;
+    int s2Idx = 0;
+    int dIdx = 0;
+
+    while(*(s1+s1Idx) != 0 && *(s2+s2Idx) != 0){
+        *(d+dIdx) = *(s1+s1Idx);
+        *(d+dIdx+1) = *(s2+s2Idx);
+
+        s1Idx++;
+        s2Idx++;
+        dIdx+=2;
+    }
+
+    if(*(s1+s1Idx) == 0){
+        while(*(s2+s2Idx) != 0){
+            *(d+dIdx) = *(s2+s2Idx);
+            s2Idx++;
+            dIdx++;
+        }
+    }
+    else if(*(s2+s2Idx) == 0){
+        while(*(s1+s1Idx) != 0){
+            *(d+dIdx) = *(s1+s1Idx);
+            s1Idx++;
+            dIdx++;
+        }
+    }
+
+    *(d+dIdx) = 0;
 }
 
 void strgReverseLetters(char *s) {
-    // TODO: implement
-    (void)s;
+    if(s == NULL){
+        return;
+    }
+
+    int len = strgLen(s);
+    char mem[len] = {};
+    int memIdx = 0;
+
+    while(len > 0){
+        len--;
+        if(!((*(s+len) >= 97 && *(s+len) <= 122) || (*(s+len) >= 65 && *(s+len) <= 90))){
+            continue;
+        }
+        mem[memIdx] = *(s+len);
+        memIdx++;
+    }
+
+    for(int idx = 0; *(s+idx) != 0; idx++){
+        if(!((*(s+idx) >= 97 && *(s+idx) <= 122) || (*(s+idx) >= 65 && *(s+idx) <= 90))){
+            continue;
+        }
+
+        *(s+idx) = mem[len];
+        len++;
+    }
 }
 
 
@@ -124,6 +186,52 @@ int main(int argc, char* argv[]){
     // strgChangeCase(s6);
     // printf("%s\n", s6);
     // strgChangeCase(NULL);   //Does nothing and Returns
+
+    // printf("%d\n", strgDiff("Hello", "Hello"));
+    // printf("%d\n", strgDiff("CSE-220", "CSE220"));
+    // printf("%d\n", strgDiff("CSE220", "SE220"));
+    // printf("%d\n", strgDiff("", ""));
+    // printf("%d\n", strgDiff("ABCDEF", "ABCDE"));
+    // printf("%d\n", strgDiff(NULL, NULL));
+    // printf("%d\n", strgDiff(NULL, "NULL"));
+
+    // char dest[32] = {0};
+    // strgInterleave("abc", "123", dest);
+    // printf("%s\n", dest);
+    // strgInterleave("abcdef", "123", dest);
+    // printf("%s\n", dest);
+    // strgInterleave("cse", "12345", dest);
+    // printf("%s\n", dest);
+    // strgInterleave("1234", "cs", dest);
+    // printf("%s\n", dest);
+    // strgInterleave("", "", dest);
+    // printf("%s\n", dest);
+    // strgInterleave("", "123", dest);
+    // printf("%s\n", dest);
+    // strgInterleave("NULL", NULL, dest); //Does nothing
+    // strgInterleave(NULL, NULL, dest);   //Does nothing
+
+    char t1[] = "Hello";
+    strgReverseLetters(t1);
+    printf("%s\n", t1);
+    char t2[] = "ab-cd";
+    strgReverseLetters(t2);
+    printf("%s\n", t2);
+    char t3[] = "a1b2c";
+    strgReverseLetters(t3);
+    printf("%s\n", t3);
+    char t4[] = "hello world";
+    strgReverseLetters(t4);
+    printf("%s\n", t4);
+    char t5[] = "_X_";
+    strgReverseLetters(t5);
+    printf("%s\n", t5);
+    char t6[] = "";
+    strgReverseLetters(t6);
+    printf("%s\n", t6);
+    char t7[] = "elf!";
+    strgReverseLetters(t7);
+    printf("%s\n", t7);
 
 	/** ---------------------- **/
 	return 0;
