@@ -149,48 +149,54 @@ int decryptCaesar(const char *ciphertext, char *plaintext, int key) {
  * test cases for the TAs. 
  * Comment out if using criterion to test.
  */
-int main(int argc, char* argv[]){
-	(void)argc;
-	(void)argv;
-	/** CREATE TEST CASES HERE **/
-    // char out[64];
-    // printf("%d\n", encryptCaesar("abc",  out, 2));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar("Ayb",  out, 3));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar("Cse220",  out, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar("CS",  out, 0));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar("System Fundamentals",  out, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar("",  out, 42));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar(NULL,  out, 42));
-    // printf("%s\n", out);
-    // printf("%d\n", encryptCaesar("abc",  NULL, 42));
-    // printf("%s\n", out);
+// int main(int argc, char* argv[]){
+// 	(void)argc;
+// 	(void)argv;
+// 	/** CREATE TEST CASES HERE **/
+//     // char out[64];
+//     // printf("%d\n", encryptCaesar("abc",  out, 2));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("Ayb",  out, 3));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("Cse220",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("CS",  out, 0));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("System Fundamentals",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("",  out, 42));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar(NULL,  out, 42));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("abc",  NULL, 42));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("[]_+;?><123",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", encryptCaesar("1234567",  out, 0));
+//     // printf("%s\n", out);
 
-    // char out[64];
-    // printf("%d\n", decryptCaesar("ceg__EOM__",  out, 2));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("Dcg__EOM__",  out, 3));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("Duh911__EOM__",  out, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("CT__EOM__",  out, 0));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("Tavxjs Ndxomzscjrdl__EOM__",  out, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("no marker",  out, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("NULL__EOM__",  NULL, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar(NULL,  out, 1));
-    // printf("%s\n", out);
-    // printf("%d\n", decryptCaesar("undefined__EOM__",  out, 1));
-    // printf("%s\n", out);
+//     // char out[64];
+//     // printf("%d\n", decryptCaesar("ceg__EOM__",  out, 2));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("Dcg__EOM__",  out, 3));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("Duh911__EOM__",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("CT__EOM__",  out, 0));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("Tavxjs Ndxomzscjrdl__EOM__",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("no marker",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("NULL__EOM__",  NULL, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar(NULL,  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("undefined__EOM__",  out, 1));
+//     // printf("%s\n", out);
+//     // printf("%d\n", decryptCaesar("1470369__EOM__",  out, 0));
+//     // printf("%s\n", out);
 	
-	/** ---------------------- **/
-	return 0;
-}
+// 	/** ---------------------- **/
+// 	return 0;
+// }
