@@ -11,45 +11,12 @@
  *  Feel free to use the functions that you made in strPtr.c
 */ 
 
-//For some reason, this isn't linking correctly
-//So I just added the function here
-void strCopy(char *dest, char *src) {
-    if(src == NULL || dest == NULL){
-        return;
-    }
-
-    for(int idx = 0; ; idx++){
-        *(dest+idx) = *(src+idx);
-
-        if(*(src+idx) == 0){    //Copy first, then break if needed
-            break;
-        }
-    }
-}
-
-int strDiff(const char *s1, char *s2) {
-    if(s1 == NULL || s2 == NULL){
-        return -2;
-    }
-
-    for(int idx = 0; ; idx++){
-        if(*(s1+idx) != *(s2+idx)){
-            return idx;
-        }
-
-        if(*(s1+idx) == 0 || *(s2+idx) == 0){   //Compare first, then break if needed
-            break;
-        }
-    }
-    return -1;
-}
-
 int encryptCaesar(const char *plaintext, char *ciphertext, int key) {
     if(plaintext == NULL || ciphertext == NULL){
         return -2;
     }
     else if(*(plaintext) == 0){
-        strCopy(ciphertext, "undefined__EOM__");
+        strgCopy(ciphertext, "undefined__EOM__");
         return 0;
     }
 
@@ -93,11 +60,21 @@ int encryptCaesar(const char *plaintext, char *ciphertext, int key) {
 }
 
 int decryptCaesar(const char *ciphertext, char *plaintext, int key) {
+    char newStr[strgLen(plaintext)];
+
     if(plaintext == NULL || ciphertext == NULL){
         return -2;
     }
-    else if(strDiff(ciphertext, "undefined__EOM__") == -1){
-        strCopy(plaintext, "undefined");
+    else if(strgLen(plaintext) <= 0){
+        return 0;
+    }
+    else if(strgDiff((char *)ciphertext, "undefined__EOM__") == -1){
+        char undef[] = "undefined";
+        int  plaintextLen = strgLen(plaintext);
+        for(int i = 0; i < plaintextLen; i++){
+            *(plaintext+i) = *(undef+i);
+            *(plaintext+i+1) = 0;
+        }
         return 0;
     }
 
@@ -125,13 +102,18 @@ int decryptCaesar(const char *ciphertext, char *plaintext, int key) {
         }
 
         //Check if this is end of memory
-        if(strDiff((ciphertext+idx), "__EOM__") == -1){
+        if(strgDiff((char *)(ciphertext+idx), "__EOM__") == -1){
             //Add null character
-            *(plaintext+idx) = 0;
+            *(newStr+idx) = 0;
+            int  plaintextLen = strgLen(plaintext);
+            for(int i = 0; i < plaintextLen; i++){
+                *(plaintext+i) = *(newStr+i);
+                *(plaintext+i+1) = 0;
+            }
             return counter;
         }
 
-        *(plaintext+idx) = newChar;
+        *(newStr+idx) = newChar;
     }
 
     //If this is reached, that means no EOM, but

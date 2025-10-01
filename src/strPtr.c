@@ -29,7 +29,7 @@ void strgCopy(char *dest, char *src) {
     for(int idx = 0; ; idx++){
         *(dest+idx) = *(src+idx);
 
-        if(*(src+idx) == 0){    //Copy first, then break if needed
+        if(*(src+idx) == 0){    //Copy first, then break if needed source end is reached
             break;
         }
     }
@@ -176,121 +176,121 @@ void strgReverseLetters(char *s) {
 // 	// printf("%d\n", strgLen("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"));
 // 	// printf("%d\n", strgLen(NULL));
 
-//     // char dest[32] = {0};
-//     // strgCopy(dest, "Computer Science");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "CSE-220");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "System Fundamental");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "1");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "Hello!");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, NULL);       //Does nothing
-//     // printf("%s\n", dest);
-//     // strgCopy(NULL, "Hello!");   //Does nothing
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "\t\they");
-//     // printf("%s\n", dest);
-//     // strgCopy(dest, "\t .\t.\n\t\\________/"); //Smiley face
-//     // printf("%s\n", dest);
+//  // char dest[32] = {0};
+//  // strgCopy(dest, "Computer Science");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "CSE-220");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "System Fundamental");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "1");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "Hello!");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, NULL);       //Does nothing
+//  // printf("%s\n", dest);
+//  // strgCopy(NULL, "Hello!");   //Does nothing
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "\t\they");
+//  // printf("%s\n", dest);
+//  // strgCopy(dest, "\t .\t.\n\t\\________/"); //Smiley face
+//  // printf("%s\n", dest);
 
-//     // char s1[] = "Stony Brook";
-//     // strgChangeCase(s1);
-//     // printf("%s\n", s1);
-//     // char s2[] = "CSE220";
-//     // strgChangeCase(s2);
-//     // printf("%s\n", s2);
-//     // char s3[] = "a1b";
-//     // strgChangeCase(s3);
-//     // printf("%s\n", s3);
-//     // char s4[] = "System Fundamental220";
-//     // strgChangeCase(s4);
-//     // printf("%s\n", s4);
-//     // char s5[] = "1";
-//     // strgChangeCase(s5);
-//     // printf("%s\n", s5);
-//     // char s6[] = "";
-//     // strgChangeCase(s6);
-//     // printf("%s\n", s6);
-//     // strgChangeCase(NULL);   //Does nothing and Returns
-//     // char s7[] = "a1ab2bc3cd4de5ef6fg7g";
-//     // strgChangeCase(s7);
-//     // printf("%s\n", s7);
-//     // char s8[] = "1_+{];'[];[-=_+:]}";
-//     // strgChangeCase(s8);
-//     // printf("%s\n", s8);
-//     // char s9[] = "A-aB+bC=cD_dE]eF.fG;g";
-//     // strgChangeCase(s9);
-//     // printf("%s\n", s9);
-//     // char s10[] = "ZYXWVUTSR\t3AaaA";
-//     // strgChangeCase(s10);
-//     // printf("%s\n", s10);
+//  // char s1[] = "Stony Brook";
+//  // strgChangeCase(s1);
+//  // printf("%s\n", s1);
+//  // char s2[] = "CSE220";
+//  // strgChangeCase(s2);
+//  // printf("%s\n", s2);
+//  // char s3[] = "a1b";
+//  // strgChangeCase(s3);
+//  // printf("%s\n", s3);
+//  // char s4[] = "System Fundamental220";
+//  // strgChangeCase(s4);
+//  // printf("%s\n", s4);
+//  // char s5[] = "1";
+//  // strgChangeCase(s5);
+//  // printf("%s\n", s5);
+//  // char s6[] = "";
+//  // strgChangeCase(s6);
+//  // printf("%s\n", s6);
+//  // strgChangeCase(NULL);   //Does nothing and Returns
+//  // char s7[] = "a1ab2bc3cd4de5ef6fg7g";
+//  // strgChangeCase(s7);
+//  // printf("%s\n", s7);
+//  // char s8[] = "1_+{];'[];[-=_+:]}";
+//  // strgChangeCase(s8);
+//  // printf("%s\n", s8);
+//  // char s9[] = "A-aB+bC=cD_dE]eF.fG;g";
+//  // strgChangeCase(s9);
+//  // printf("%s\n", s9);
+//  // char s10[] = "ZYXWVUTSR\t3AaaA";
+//  // strgChangeCase(s10);
+//  // printf("%s\n", s10);
 
-//     // printf("%d\n", strgDiff("Hello", "Hello"));
-//     // printf("%d\n", strgDiff("CSE-220", "CSE220"));
-//     // printf("%d\n", strgDiff("CSE220", "SE220"));
-//     // printf("%d\n", strgDiff("", ""));
-//     // printf("%d\n", strgDiff("ABCDEF", "ABCDE"));
-//     // printf("%d\n", strgDiff(NULL, NULL));
-//     // printf("%d\n", strgDiff(NULL, "NULL"));
-//     // printf("%d\n", strgDiff("\t\tHEY!", "\t\tHEY!"));
-//     // printf("%d\n", strgDiff("\t\tHello", "\t\tHEY!"));
-//     // printf("%d\n", strgDiff("\t\tHello", "\t\nHEY!"));
+//  // printf("%d\n", strgDiff("Hello", "Hello"));
+//  // printf("%d\n", strgDiff("CSE-220", "CSE220"));
+//  // printf("%d\n", strgDiff("CSE220", "SE220"));
+//  // printf("%d\n", strgDiff("", ""));
+//  // printf("%d\n", strgDiff("ABCDEF", "ABCDE"));
+//  // printf("%d\n", strgDiff(NULL, NULL));
+//  // printf("%d\n", strgDiff(NULL, "NULL"));
+//  // printf("%d\n", strgDiff("\t\tHEY!", "\t\tHEY!"));
+//  // printf("%d\n", strgDiff("\t\tHello", "\t\tHEY!"));
+//  // printf("%d\n", strgDiff("\t\tHello", "\t\nHEY!"));
 
-//     // char dest[32] = {0};
-//     // strgInterleave("abc", "123", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("abcdef", "123", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("cse", "12345", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("1234", "cs", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("", "", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("", "123", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("NULL", NULL, dest); //Does nothing
-//     // strgInterleave(NULL, NULL, dest);   //Does nothing
-//     // strgInterleave("\t \t ab", "123 ", dest);
-//     // printf("%s\n", dest);
-//     // strgInterleave("_+{}:<>?", "1 a2\t3", dest);
-//     // printf("%s\n", dest);
+//  // char dest[32] = {0};
+//  // strgInterleave("abc", "123", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("abcdef", "123", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("cse", "12345", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("1234", "cs", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("", "", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("", "123", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("NULL", NULL, dest); //Does nothing
+//  // strgInterleave(NULL, NULL, dest);   //Does nothing
+//  // strgInterleave("\t \t ab", "123 ", dest);
+//  // printf("%s\n", dest);
+//  // strgInterleave("_+{}:<>?", "1 a2\t3", dest);
+//  // printf("%s\n", dest);
 
-//     // char t1[] = "Hello";
-//     // strgReverseLetters(t1);
-//     // printf("%s\n", t1);
-//     // char t2[] = "ab-cd";
-//     // strgReverseLetters(t2);
-//     // printf("%s\n", t2);
-//     // char t3[] = "a1b2c";
-//     // strgReverseLetters(t3);
-//     // printf("%s\n", t3);
-//     // char t4[] = "hello world";
-//     // strgReverseLetters(t4);
-//     // printf("%s\n", t4);
-//     // char t5[] = "_X_";
-//     // strgReverseLetters(t5);
-//     // printf("%s\n", t5);
-//     // char t6[] = "";
-//     // strgReverseLetters(t6);
-//     // printf("%s\n", t6);
-//     // char t7[] = "elf!";
-//     // strgReverseLetters(t7);
-//     // printf("%s\n", t7);
-//     // char t8[] = "\tHEY! I would like 3 pineapple pies :)";
-//     // strgReverseLetters(t8);
-//     // printf("%s\n", t8);
-//     // char t9[] = "aaA123_+[][:>><?']321BB";
-//     // strgReverseLetters(t9);
-//     // printf("%s\n", t9);
-//     // char t10[] = "sbat re tfaera ereh\t\tsre ttelehT sbat ero febsi sihT!"; //Already reverse. Reverse for message
-//     // strgReverseLetters(t10);
-//     // printf("%s\n", t10);
+//  // char t1[] = "Hello";
+//  // strgReverseLetters(t1);
+//  // printf("%s\n", t1);
+//  // char t2[] = "ab-cd";
+//  // strgReverseLetters(t2);
+//  // printf("%s\n", t2);
+//  // char t3[] = "a1b2c";
+//  // strgReverseLetters(t3);
+//  // printf("%s\n", t3);
+//  // char t4[] = "hello world";
+//  // strgReverseLetters(t4);
+//  // printf("%s\n", t4);
+//  // char t5[] = "_X_";
+//  // strgReverseLetters(t5);
+//  // printf("%s\n", t5);
+//  // char t6[] = "";
+//  // strgReverseLetters(t6);
+//  // printf("%s\n", t6);
+//  // char t7[] = "elf!";
+//  // strgReverseLetters(t7);
+//  // printf("%s\n", t7);
+//  // char t8[] = "\tHEY! I would like 3 pineapple pies :)";
+//  // strgReverseLetters(t8);
+//  // printf("%s\n", t8);
+//  // char t9[] = "aaA123_+[][:>><?']321BB";
+//  // strgReverseLetters(t9);
+//  // printf("%s\n", t9);
+//  // char t10[] = "sbat re tfaera ereh\t\tsre ttelehT sbat ero febsi sihT!"; //Already reverse. Reverse for message
+//  // strgReverseLetters(t10);
+//  // printf("%s\n", t10);
 
 // 	/** ---------------------- **/
 // 	return 0;
